@@ -1,1 +1,0 @@
-#Dk joga de yasuo
