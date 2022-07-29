@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(
+        90deg,
+         rgb(1, 7, 7) 0%,
+         rgb(53, 54, 54)100%);
+}
+
+/* #game-screen {
+    width: 100%;
+    height: 100%; 
+    display: grid;
+    grid-template-columns: 1fr, 300px, 1fr; 
+
+} */
+
+.boarder {
+    display: grid;
+    width: 100%;
+    height: 80%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+.boarder.x .cell:not(.x):not(.circle):hover::after,
+.boarder.x .cell:not(.x):not(.circle):hover::before,
+.boarder.circle .cell:not(.x):not(.circle):hover::after,
+.boarder.circle .cell:not(.x):not(.circle):hover::before {
+    background: rgba(239, 243, 241, 0.493) !important;
+}
+
+ /* Cell */
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cell.x, .cell.circle {
+    cursor: not-allowed;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none ;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none ;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none ;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+    border-right: none ;
+}
+/* X */
+.cell.x::before,
+.cell.x::after,
+.boarder.x .cell:not(.x):not(.circle):hover::after,
+.boarder.x .cell:not(.x):not(.circle):hover::before{
+    content: "";
+    height: calc(100px * 0.15);
+    width: calc(100px * 0.9);
+    background-color: white;
+    position: absolute;
+}
+
+.cell.x::before,
+.boarder.x .cell:not(.x):not(.circle):hover::before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after,
+.boarder.x .cell:not(.x):not(.circle):hover::after {
+    transform: rotate(-45deg) ;
+}
+/* Circle */
+
+.cell.circle::before,
+.cell.circle::after,
+.boarder.circle .cell:not(.x):not(.circle):hover::after,
+.boarder.circle .cell:not(.x):not(.circle):hover::before {
+    content: "";
+    height: calc(100px * 0.9);
+    width: calc(100px * 0.9);
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.cell.circle::before {
+    transform: rotate(45deg);
+}
+
+.cell.circle::after {
+    transform: rotate(-45deg) ;
+}
+/* winiing message */
+.winning-message {
+    display: none;
+    font-style: arial;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+}
+
+.winning-message-button {
+    font-size: 2.5rem;
+    background-color: rgba(65, 185, 131, 1) 0% ;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    margin-top: 16px;
+    color: white;
+}
+
+.winning-message-button:hover {
+  color: rgba(65, 185, 131, 1);
+  background-color: white;
+}
+
+.winning-message-text {
+    color: white;
+    font-size: 5rem;
+}
+
+.show-winning-message {
+    display: flex;
+}
+
+.score-board {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
+    width: 300px; 
+    margin-left: 43%;
+}
+
+.scoreboard-name,
+.scoreboard-score {
+    padding:  10px;
+    text-align: center;
+}
+
+.scoreboard-name {
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.scoreboard-name--one {
+    color: #009578;
+}
+
+.scoreboard-name--two {
+    color: #2d0095;
+}
+
+.scoreboard-score {
+    font-size: 2em;
+}
+
+.scoreboard-controls {
+    display: flex;
+
+}
+
+.scoreboard-control-button {
+    flex-grow: 1;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.scoreboard-control-button:hover {
+    background: #eee;
+}
+
+.scoreboard-control-button:active {
+    background: #ddd;
+}
+
+/* position: absolute;
+    top: 45%;
+    left: 20%;
+    color: white;
+    font-size: 1.5rem; */
