@@ -13,7 +13,7 @@ Para jogar é bem simples, apenas clique com a seta do mouse no espaço em que q
 
 
 
-## The game
+## O Jogo
 
 Para jogar, clique no link: https://joaopaulobco.github.io/jogo-da-velha/
 
